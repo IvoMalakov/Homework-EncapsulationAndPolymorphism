@@ -83,26 +83,9 @@ namespace TheMainProgram
                 foreach (var circle in circles)
                 {
                     Console.WriteLine("This circle with radius = {0} have \n " +
-                                      "Area = {1:F2} and Perimeter = {2}", circle.Weight,
+                                      "Area = {1:F2} and Perimeter = {2:F2}", circle.Radius,
                         circle.CalculateArea(), circle.CalculatePerimeter());
                 }
-
-                Console.WriteLine();
-                Console.WriteLine("Lets unite those figures and see them all");
-                Console.WriteLine();
-
-                basicShapes.AddRange(triangles);
-                basicShapes.AddRange(rectangles);
-                basicShapes.AddRange(circles);
-
-                var sortedFigures = basicShapes.OrderBy(i => i.CalculateArea()).ThenBy(j => j.CalculatePerimeter());
-
-                foreach (var figure in sortedFigures)
-                {
-                    Console.WriteLine("This {0} have Area = {1:F2} and Perimeter = {2:F2}", figure.GetType(),
-                        figure.CalculateArea(), figure.CalculatePerimeter());
-                }
-
             }
 
             catch (NullReferenceException)
