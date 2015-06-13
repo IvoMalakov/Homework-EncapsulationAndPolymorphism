@@ -1,23 +1,41 @@
 ﻿using System;
+using Interfaces;
 
-namespace Classes.Shapes
+namespace Classes
 {
-    public class Circle : BasicShape
+    public class Circle : IShape
     {
-        public Circle(double radius) : base(radius, 1.0)
+        private double radius;
+
+        public Circle(double radius)
         {
-            
+            this.Radius = radius;
         }
 
-        public override double CalculateArea()
+        public double Radius
         {
-            double area = Math.PI * this.Weight * this.Weight;
+            get { return this.radius; }
+
+            set
+            {
+                if (value <= 0.0)
+                {
+                    throw new ArgumentException("Your radius can not be negative or zero");
+                }
+
+                this.radius = value;
+            }
+        }
+
+        public double CalculateArea()
+        {
+            double area = Math.PI * this.Radius * this.Radius;
             return area;
         }
 
-        public override double CalculatePerimeter()
+        public double CalculatePerimeter()
         {
-            double perimeter = 2 * Math.PI * this.Weight;
+            double perimeter = 2 * Math.PI * this.Radius;
             return perimeter;
         }
     }
