@@ -37,7 +37,7 @@ namespace BankOfKurtovoKonare.Classes
 
         public decimal InterestRate
         {
-            get { return this.balance; }
+            get { return this.interestRate; }
 
             set
             {
